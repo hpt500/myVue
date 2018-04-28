@@ -9,7 +9,7 @@ const LRU = require('lru-cache')
 const resolve = file => path.resolve(__dirname, file)
 const app = new Koa()
 const router = new KoaRuoter()
-const template = fs.readFileSync(resolve('./index.html'), 'utf-8')
+const template = fs.readFileSync(resolve('./src/index-templete.html'), 'utf-8')
 
 function createRenderer (bundle, options) {
     return createBundleRenderer(
@@ -27,8 +27,8 @@ function createRenderer (bundle, options) {
 }
 
 let renderer
-const bundle = require('./dist/vue-ssr-server-bundle.json')
-const clientManifest = require('./dist/vue-ssr-client-manifest.json')
+const bundle = require('./ssr/vue-ssr-server-bundle.json')
+const clientManifest = require('./ssr/vue-ssr-client-manifest.json')
 renderer = createRenderer(bundle, {
     clientManifest
 })
@@ -69,7 +69,7 @@ function render (ctx, next) {
     })
 }
 
-app.use(serve('/dist', './dist', true))
+app.use(serve('/ssr', './ssr', true))
 app.use(serve('/public', './public', true))
 
 router.get('*', render)

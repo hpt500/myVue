@@ -5,11 +5,14 @@ const base = require('./webpack.base.conf')
 const nodeExternals = require('webpack-node-externals')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 
+const pathConf = require('../config')
+
 module.exports = merge(base, {
     target: 'node',
     devtool: '#source-map',
     entry: './src/entry-server.js',
     output: {
+        path: pathConf.build.assetsRootSsr,
         filename: 'server-bundle.js',
         libraryTarget: 'commonjs2'
     },

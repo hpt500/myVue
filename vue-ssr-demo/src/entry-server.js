@@ -1,4 +1,4 @@
-import { createApp } from './main'
+import { createApp } from './app'
 
 export default context => {
     // 因为这边 router.onReady 是异步的，所以我们返回一个 Promise

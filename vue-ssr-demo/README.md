@@ -2,29 +2,46 @@
 
 > A Vue.js project
 
+>> 关于vue项目构建的初始模板其中包括
+
+>>> ssr客户端及其服务器端的配置
+
+>>> dev模式与ssr的分开配置
+
+>>> sass的配置
+
 ## Build Setup
+
+### Start
 
 ``` bash
 # install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### dev 模式
+``` bash
+# 在localhost:8080运行dev服务
+npm run dev
+
+# 打包项目
+npm run build
+
+# 打包报告
+npm run build --report
+```
+
+### ssr 模式
+``` bash
+# 打包renderer(包括客户端client及服务器端server)
+npm run build:all
+
+# 通过node express运行服务器端
+node server.js
+```
+
+## Welcome
+
+> 如果你对该配置模板有何疑问,欢迎讨论
+
+> You can contact me by 565420423@qq.com --Mr.Xu

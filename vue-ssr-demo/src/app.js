@@ -9,11 +9,14 @@ Vue.use(ElementUI);
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
 
-// dev模式
-const router = createRouter()
-new Vue({
-    el: '#app',
-    router,
-    components: { App },
-    template: '<App/>'
-})
+// ssr渲染
+export function createApp (ssrContext) {
+    const router = createRouter()
+    const app = new Vue({
+        router,
+        ssrContext,
+        render: h => h(App)
+    })
+    return { app, router }
+}
+
