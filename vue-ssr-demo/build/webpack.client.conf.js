@@ -5,9 +5,14 @@ const base = require('./webpack.base.conf')
 const glob = require('glob')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
+const pathConf = require('../config')
+
 const config = merge(base, {
     entry: {
         app: './src/entry-client.js'
+    },
+    output:{
+        path: pathConf.build.assetsRootSsr,
     },
     resolve: {
         alias: {

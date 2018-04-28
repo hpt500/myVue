@@ -1,0 +1,46 @@
+//You can contact me by 565420423@qq.com --Mr.Xu
+@charset "utf-8";
+
+$baseColor: #148bc8;
+$baseHover: #3bb5fc;
+
+// xyx filter
+@mixin xyx_filter_one($val){
+    filter: $val;
+    -webkit-filter: $val;
+}
+
+// xyx  %filter->brightness
+@mixin xyx_filter_bright($num){
+    @include xyx_filter_one(brightness($num));
+}
+
+// xyx widht and height
+@mixin xyx_wh($w,$h){
+    width: $w;
+    height: $h;
+}
+
+// xyx @media
+@mixin xyx_media_width($t,$w){
+    @media screen and(#{$t}-width:$w){
+        // @content this is content
+        @content;
+    }
+}
+
+// xyx @media two
+@mixin xyx_media_and($w1,$w2){
+    @media screen and (max-width: $w1) and (min-width: $w2){
+        // @content this is content
+        @content;
+    }
+}
+
+
+
+
+
+
+
+
