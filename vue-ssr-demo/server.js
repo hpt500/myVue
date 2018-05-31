@@ -59,10 +59,11 @@ function render (ctx, next) {
             url: ctx.url
         }
         renderer.renderToString(context, (err, html) => {
+            console.log(html)
             if (err) {
                 return handleError(err)
             }
-            // console.log(html)
+            console.log(html)
             ctx.body = html
             resolve()
         })

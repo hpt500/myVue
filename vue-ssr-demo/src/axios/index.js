@@ -4,7 +4,7 @@ import apis from './apiUrl'
 import NProgress from 'nprogress'
 
 // axios 配置
-axios.defaults.baseURL = 'http://localhost:8008';
+axios.defaults.baseURL = 'http://www.youshist.com/';
 
 //POST传参序列化 请求之前
 axios.interceptors.request.use((config) => {
@@ -28,28 +28,33 @@ axios.interceptors.response.use((res) =>{
     return Promise.reject(error);
 });
 
-export default {
-    post(api, data) {
-        return axios({
-            method: 'post', // 请求协议
-            url: apis[api], // 请求的地址
-            data: qs.stringify(data), // post 请求的数据
-            timeout: 10000, // 超时时间, 单位毫秒
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        })
-    },
-    get(api, params) {
-        return axios({
-            method: 'get',
-            url: apis[api],
-            params, // get 请求时带的参数
-            timeout: 10000,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        })
-    }
-}
+export default axios;
+
+// export default {
+//     post(api, data, isno) {
+//         const apiurl = isno?api:apis[api];
+//         return axios({
+//             method: 'post', // 请求协议
+//             url: apiurl, // 请求的地址
+//             data: qs.stringify(data), // post 请求的数据
+//             timeout: 10000, // 超时时间, 单位毫秒
+//             headers: {
+//                 'X-Requested-With': 'XMLHttpRequest',
+//                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+//             }
+//         })
+//     },
+//     get(api, params,isno) {
+//         console.log("传递数据为:"+api)
+//         const apiurl = isno?api:apis[api];
+//         return axios({
+//             method: 'get',
+//             url: apiurl,
+//             params, // get 请求时带的参数
+//             timeout: 10000,
+//             headers: {
+//                 'X-Requested-With': 'XMLHttpRequest',
+//             }
+//         })
+//     }
+// }

@@ -1,7 +1,7 @@
 <template>
 	<div id="secondcomponent">
 		<el-card class="box-card">
-			<div>豆瓣电影排行榜</div>
+			<div class="bbb">获取游识帖子数据</div>
 			<ul>
 				<div v-html="loading">
 					
@@ -13,20 +13,21 @@
 	</div>
 	
 </template>
-<style type="text/css">
 
-</style>
 <script type="text/javascript">
 	export default {
 		data() {
 			return {
 				items: [],
+				start: 1,
 				loading: "<img src='static/img/loading.gif'>"
 			}
-		},
+		}, 
 		mounted: function() {
 			
-            this.$axios.get('https://api.douban.com/v2/movie/top250?count=10')
+            this.$axios.post('api_polymer/getBody',{
+				start: this.start,
+			},true)
             .then(function (response) {
                 console.log(response);
             })

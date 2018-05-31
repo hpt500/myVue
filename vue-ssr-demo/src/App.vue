@@ -6,15 +6,9 @@
 
     <router-view class="view"></router-view>
     <second-com></second-com>
+    <div class="bbb">wolaikankan</div>
 </div>
 </template>
-
-<style>
-.link{
-margin: 10px;
-}  
-
-</style>
 
 <script>
     import secondCom from "./components/second.vue";
@@ -22,8 +16,10 @@ margin: 10px;
         name: 'app',
         components:{
             secondCom,
-        }
+        },
+        
     }
 
 
 </script>
+<style lang="scss" src="./assets/scss/base.scss"></style> 
